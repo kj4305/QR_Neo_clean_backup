@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다이루케어재가복지센터 | 카카오톡 상담 QR</title>
+    <meta name="description" content="다이루케어재가복지센터의 카카오톡 상담 QR을 만들고 공유하세요. QR을 찍으면 1:1 상담으로 연결됩니다.">
+
+    <!-- Open Graph / Facebook / KakaoTalk -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qr-neo-clean.vercel.app/">
+    <meta property="og:title" content="다이루케어재가복지센터 | 카카오톡 상담 QR">
+    <meta property="og:description" content="다이루케어재가복지센터의 카카오톡 상담 QR을 만들고 공유하세요. QR을 찍으면 1:1 상담으로 연결됩니다.">
+    <meta property="og:image" content="https://qr-neo-clean.vercel.app/og-image-v2.png">
+    <meta property="og:image:secure_url" content="https://qr-neo-clean.vercel.app/og-image-v2.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1743">
+    <meta property="og:image:height" content="1000">
+    <meta property="og:image:alt" content="다이루케어재가복지센터 카카오톡 상담 안내">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="다이루케어재가복지센터">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="다이루케어재가복지센터 | 카카오톡 상담 QR">
+    <meta name="twitter:description" content="다이루케어재가복지센터의 카카오톡 상담 QR을 만들고 공유하세요. QR을 찍으면 1:1 상담으로 연결됩니다.">
+    <meta name="twitter:image" content="https://qr-neo-clean.vercel.app/og-image-v2.png">
+    <meta name="twitter:image:alt" content="다이루케어재가복지센터 카카오톡 상담 안내">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>QR <span class="blue-text">Studio</span></h1>
+            <p>세련된 디자인의 QR 코드를 즉시 생성하세요</p>
+            <div class="creator-badge">제작자: 다이루케어 재가복지센터</div>
+        </header>
+
+        <!-- Visual Guide Section -->
+        <section class="visual-guide">
+            <div class="guide-step">
+                <div class="step-icon"><i class="fa-solid fa-keyboard"></i></div>
+                <div class="step-text">
+                    <h3>1. 입력</h3>
+                    <p>내용을 입력하세요</p>
+                </div>
+            </div>
+            <div class="guide-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div class="guide-step">
+                <div class="step-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="step-text">
+                    <h3>2. 커스텀</h3>
+                    <p>스타일을 선택하세요</p>
+                </div>
+            </div>
+            <div class="guide-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div class="guide-step">
+                <div class="step-icon"><i class="fa-solid fa-file-export"></i></div>
+                <div class="step-text">
+                    <h3>3. 저장</h3>
+                    <p>원하는 형식으로 저장</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="generator-card">
+            <div class="config-panel">
+                <div class="input-group">
+                    <label for="qr-text">내용 (URL 또는 텍스트)</label>
+                    <div class="input-wrapper-row">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-link"></i>
+                            <input type="text" id="qr-text" class="input-large" maxlength="4096" placeholder="https://example.com" value="https://pf.kakao.com/_kxiMFX/chat">
+                        </div>
+                        <button id="shorten-btn" class="brutal-btn-small">
+                            <i class="fa-solid fa-scissors"></i> URL 단축
+                        </button>
+                    </div>
+                </div>
+
+                <div id="short-url-result" class="short-url-box" style="display: none;">
+                    <label>단축된 URL</label>
+                    <div class="input-wrapper-row">
+                        <input type="text" id="short-url-output" class="short-url-input" readonly>
+                        <button id="copy-btn" class="brutal-btn-small copy-btn">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                </div>
+
+                <div class="customization-grid">
+                    <div class="input-group">
+                        <label for="dots-color">점 색상</label>
+                        <input type="color" id="dots-color" value="#205c48">
+                    </div>
+                    <div class="input-group">
+                        <label for="bg-color">배경 색상</label>
+                        <input type="color" id="bg-color" value="#ffffff">
+                    </div>
+                    <div class="input-group">
+                        <label for="dots-style">점 스타일</label>
+                        <select id="dots-style">
+                            <option value="square">Square</option>
+                            <option value="dots" selected>Dots</option>
+                            <option value="rounded">Rounded</option>
+                            <option value="extra-rounded">Extra Rounded</option>
+                            <option value="classy">Classy</option>
+                            <option value="classy-rounded">Classy Rounded</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="corners-style">모서리 스타일</label>
+                        <select id="corners-style">
+                            <option value="square">Square</option>
+                            <option value="dot">Dot</option>
+                            <option value="extra-rounded" selected>Extra Rounded</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="logo-upload">로고 이미지 추가 (중앙)</label>
+                    <div class="input-wrapper-row">
+                        <input type="file" id="logo-upload" accept="image/*" class="file-input">
+                        <button id="remove-logo-btn" class="brutal-btn-small danger">
+                            <i class="fa-solid fa-trash-can"></i> 제거
+                        </button>
+                    </div>
+                </div>
+
+                <div class="download-config">
+                    <div class="input-group">
+                        <label for="export-format">저장 형식</label>
+                        <select id="export-format">
+                            <option value="png">PNG</option>
+                            <option value="jpeg">JPG</option>
+                            <option value="svg">SVG</option>
+                            <option value="webp">WEBP</option>
+                        </select>
+                    </div>
+                    <button id="download-btn" class="primary-btn">
+                        <i class="fa-solid fa-download"></i> 다운로드
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="qr-poster-copy">
+                    <span class="qr-poster-brand">다이루케어재가복지센터</span>
+                    <h2>카카오톡으로<br>편하게 상담하세요</h2>
+                    <p>QR을 찍고 카카오톡으로 문의하세요</p>
+                </div>
+                <div id="canvas-container">
+                    <!-- QR Code will be rendered here -->
+                </div>
+                <div class="preview-badge">KakaoTalk · 1:1 상담</div>
+                <button id="poster-download-btn" class="poster-download-btn" type="button">포스터 PNG 저장</button>
+            </div>
+        </section>
+
+        <nav class="community-nav" aria-label="QR Studio 메뉴">
+            <a href="#history-section"><i class="fa-solid fa-clock-rotate-left"></i> 내 QR 기록</a>
+            <a href="#reviews-section"><i class="fa-solid fa-star"></i> 사용 후기</a>
+            <a href="#questions-section"><i class="fa-regular fa-circle-question"></i> 질문과 답변</a>
+        </nav>
+        <p id="community-db-status" class="community-db-status" role="status" aria-live="polite">공용 데이터 저장소를 확인하고 있습니다.</p>
+
+        <section class="howto-section" id="how-to">
+            <div class="section-heading">
+                <span class="section-kicker">처음이라도 괜찮아요</span>
+                <h2>5컷으로 배우는 QR 만들기</h2>
+                <p>순서대로 따라 하면 나만의 QR 코드가 완성됩니다.</p>
+            </div>
+            <div class="howto-comic">
+                <article class="comic-panel comic-mint">
+                    <span class="comic-number">1</span>
+                    <div class="comic-illustration"><i class="fa-solid fa-link"></i><span>URL</span></div>
+                    <h3>주소를 입력해요</h3>
+                    <p>QR로 연결할 웹사이트 주소나 문장을 입력하세요.</p>
+                    <span class="comic-speech">어디로 연결할까요?</span>
+                </article>
+                <article class="comic-panel comic-yellow">
+                    <span class="comic-number">2</span>
+                    <div class="comic-illustration"><i class="fa-solid fa-palette"></i><span>색과 모양</span></div>
+                    <h3>디자인을 골라요</h3>
+                    <p>점과 모서리의 색상, 모양을 원하는 스타일로 바꿔보세요.</p>
+                    <span class="comic-speech">내 취향으로 찰칵!</span>
+                </article>
+                <article class="comic-panel comic-peach">
+                    <span class="comic-number">3</span>
+                    <div class="comic-illustration"><i class="fa-regular fa-image"></i><span>선택 사항</span></div>
+                    <h3>로고를 넣어요</h3>
+                    <p>원한다면 이미지 파일을 올려 QR 중앙에 로고를 넣을 수 있어요.</p>
+                    <span class="comic-speech">우리 로고도 함께!</span>
+                </article>
+                <article class="comic-panel comic-lilac">
+                    <span class="comic-number">4</span>
+                    <div class="comic-illustration"><i class="fa-solid fa-qrcode"></i><span>미리보기</span></div>
+                    <h3>QR을 확인해요</h3>
+                    <p>입력과 디자인을 바꾸면 QR 코드가 바로 만들어집니다.</p>
+                    <span class="comic-speech">짜잔, 완성!</span>
+                </article>
+                <article class="comic-panel comic-blue">
+                    <span class="comic-number">5</span>
+                    <div class="comic-illustration"><i class="fa-solid fa-download"></i><span>PNG · SVG</span></div>
+                    <h3>다운로드해요</h3>
+                    <p>형식을 선택해 저장한 뒤 인쇄물이나 온라인에 사용하세요.</p>
+                    <span class="comic-speech">이제 공유해요!</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="community-section" id="history-section">
+            <div class="section-heading section-heading-left">
+                <span class="section-kicker">나만의 보관함</span>
+                <h2>내 QR 기록</h2>
+                <p>저장한 QR 이미지와 생성 정보를 다시 확인하고 다운로드할 수 있어요.</p>
+            </div>
+            <div class="community-panel">
+                <div class="history-toolbar">
+                    <button id="save-history-btn" class="community-primary-btn" type="button" disabled>
+                        <i class="fa-solid fa-bookmark"></i> 현재 QR 기록 저장
+                    </button>
+                    <p id="history-status" class="inline-status" role="status" aria-live="polite">데이터베이스 연결 후 QR 기록을 저장할 수 있습니다.</p>
+                </div>
+                <div id="history-list" class="history-list" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="community-section" id="reviews-section">
+            <div class="section-heading section-heading-left">
+                <span class="section-kicker">함께 나누는 경험</span>
+                <h2>사용 후기</h2>
+                <p>QR Studio를 사용해 본 경험을 별점과 함께 남겨주세요.</p>
+            </div>
+            <div class="community-columns">
+                <form id="review-form" class="community-panel community-form">
+                    <h3>후기 작성</h3>
+                    <label for="review-name">작성자 이름</label>
+                    <input id="review-name" name="author_name" type="text" maxlength="40" autocomplete="name" required placeholder="이름 또는 별명을 입력하세요">
+                    <fieldset class="rating-picker">
+                        <legend>별점</legend>
+                        <div class="rating-options">
+                            <label><input type="radio" name="rating" value="1" required><span aria-label="1점">★</span></label>
+                            <label><input type="radio" name="rating" value="2"><span aria-label="2점">★</span></label>
+                            <label><input type="radio" name="rating" value="3"><span aria-label="3점">★</span></label>
+                            <label><input type="radio" name="rating" value="4"><span aria-label="4점">★</span></label>
+                            <label><input type="radio" name="rating" value="5" checked><span aria-label="5점">★</span></label>
+                        </div>
+                    </fieldset>
+                    <label for="review-content">사용 후기</label>
+                    <textarea id="review-content" name="content" rows="5" maxlength="1200" required placeholder="사용하면서 좋았던 점이나 의견을 적어주세요."></textarea>
+                    <button class="community-primary-btn" type="submit" disabled>후기 등록</button>
+                    <p id="review-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+                <div id="review-list" class="community-list" aria-live="polite">
+                    <p class="empty-state">데이터베이스 연결 후 사용 후기가 여기에 표시됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-section" id="questions-section">
+            <div class="section-heading section-heading-left">
+                <span class="section-kicker">궁금한 점을 물어보세요</span>
+                <h2>질문과 답변</h2>
+                <p>질문 제목과 자세한 내용을 남기면 답변과 함께 목록에 표시됩니다.</p>
+            </div>
+            <div class="community-columns">
+                <form id="question-form" class="community-panel community-form">
+                    <h3>질문 작성</h3>
+                    <label for="question-name">작성자 이름</label>
+                    <input id="question-name" name="author_name" type="text" maxlength="40" autocomplete="name" required placeholder="이름 또는 별명을 입력하세요">
+                    <label for="question-title">질문 제목</label>
+                    <input id="question-title" name="title" type="text" maxlength="160" required placeholder="질문을 한 줄로 적어주세요">
+                    <label for="question-body">상세 내용</label>
+                    <textarea id="question-body" name="body" rows="6" maxlength="4000" required placeholder="궁금한 점을 자세히 적어주세요."></textarea>
+                    <button class="community-primary-btn" type="submit" disabled>질문 등록</button>
+                    <p id="question-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+                <div class="qa-column">
+                    <details id="admin-login-panel" class="admin-login-panel">
+                        <summary>관리자 답변 로그인</summary>
+                        <form id="admin-login-form" class="admin-login-form">
+                            <label for="admin-email">관리자 이메일</label>
+                            <input id="admin-email" type="email" autocomplete="username" required>
+                            <label for="admin-password">비밀번호</label>
+                            <input id="admin-password" type="password" autocomplete="current-password" required>
+                            <button class="community-secondary-btn" type="submit">로그인</button>
+                            <button id="admin-logout-btn" class="community-secondary-btn" type="button" hidden>로그아웃</button>
+                            <p id="admin-status" class="form-status" role="status" aria-live="polite"></p>
+                        </form>
+                    </details>
+                    <div id="question-list" class="community-list" aria-live="polite">
+                        <p class="empty-state">데이터베이스 연결 후 질문과 답변이 여기에 표시됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 다이루케어 재가복지센터. All Rights Reserved.</p>
+            <p style="font-size:12px;opacity:.6;margin-top:6px;">무단 전재·복제·배포를 금합니다 · All content is protected.</p>
+            <p style="font-size:11px;opacity:.5;margin-top:4px;">정리본 2026-06-21</p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <script src="app.js"></script>
+    <script src="community.js"></script>
+</body>
+</html>
